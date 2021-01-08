@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/stylesheets/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Tic-Tac-Toe: Food Fight!</title>
+  </head>
+  <body>  
+    <!-- Modal -->
+    <div class="modal fade" id="modal" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h3 class="text-center w-100">Tic-Tac-Toe: Food Fight!</h3>
+          </div>
+
+          <div id="start-game" class="modal-body">
+            <section class="mt-3">
+              <h5 class="mb-3">Player 1, choose your HEALTHY food</h5>
+              <div id="healthy-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-food="apple">
+                    <img height="100px" width="100px" alt="apple" src="assets/images/apple.svg"/>
+                  </div>
+                  <div class="carousel-item" data-food="broccoli">
+                    <img height="100px" width="100px" alt="broccoli" src="assets/images/broccoli.svg"/>
+                  </div>
+                  <div class="carousel-item" data-food="carrot">
+                    <img height="100px" width="100px" alt="carrot" src="assets/images/carrot.svg"/>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#healthy-carousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#healthy-carousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+              </div>
+            </section>
+            <section class="mt-3">
+              <h5 class="mb-3">Player 2, choose your JUNK food</h5>
+              <div id="junk-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-food="burger">
+                    <img height="100px" width="100px" alt="burger" src="assets/images/burger.svg"/>
+                  </div>
+                  <div class="carousel-item" data-food="donut">
+                    <img height="100px" width="100px" alt="donut" src="assets/images/donut.svg"/>
+                  </div>
+                  <div class="carousel-item" data-food="icecream">
+                    <img height="100px" width="100px" alt="icecream" src="assets/images/icecream.svg"/>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#junk-carousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#junk-carousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+              </div>
+            </section>
+          </div>
+
+          <div id="end-game" class="d-none">
+            <h1 id="winner" class="text-center">mynameisjeff</h1><!-- placeholder text :) -->
+            <div class="row">
+                <div id="winner-icon" class="col"></div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button id="play-button" type="button" class="btn btn-primary" data-dismiss="modal">Play!</button>
+            <button id="restart-button" type="button" class="btn btn-primary d-none"">Restart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Ends -->
+
+    <!-- Game -->
+    <div class="page-container">
+      
+      <div id="info">
+        <h1 id="current-player" class="text-center">Player 1's turn</h1>
+        <div class="row">
+          <div id="current-player-icon" class="col"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div 
+            class="col-4 box border border-top-0 border-left-0"
+            data-key="1"
+          ></div>
+          <div 
+            class="col-4 box border border-top-0"
+            data-key="2"
+          ></div>
+          <div 
+            class="col-4 box border border-top-0 border-right-0"
+            data-key="3"
+          ></div>
+        </div>
+        <div class="row">
+          <div 
+            class="col-4 box border border-left-0"
+            data-key="4"
+          ></div>
+          <div 
+            class="col-4 box border"
+            data-key="5"
+          ></div>
+          <div 
+            class="col-4 box border border-right-0"
+            data-key="6"
+          ></div>
+        </div>
+        <div class="row">
+          <div 
+            class="col-4 box border border-bottom-0 border-left-0"
+            data-key="7"
+          ></div>
+          <div 
+            class="col-4 box border border-bottom-0"
+            data-key="8"
+          ></div>
+          <div 
+            class="col-4 box border border-bottom-0 border-right-0"
+            data-key="9"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <!-- Game Ends -->
+    
+    <!-- want to make sure IIFE runs after DOM elems created -->
+    <script type='text/javascript' src='assets/js/index.js'></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.modal-header {
+  color: white;
+  background-color: #fc4b05;
+}
+
+a.carousel-control-prev, a.carousel-control-next {
+  background: grey;
+}
+
+.page-container {
+  background: #fc4b05;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.container, #info {
+  width: 300px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+.box.apple {
+  background: url('../images/apple.svg')
+}
+
+.box.broccoli {
+  background: url('../images/broccoli.svg')
+}
+
+.box.burger {
+  background: url('../images/burger.svg')
+}
+
+.box.carrot {
+  background: url('../images/carrot.svg')
+}
+
+.box.donut {
+  background: url('../images/donut.svg')
+}
+
+.box.icecream {
+  background: url('../images/icecream.svg')
+}
+
+/* using data-key for specificity issues, I don't want to use !important */
+.box[data-key], #current-player-icon, #winner-icon {
+  height: 100px;
+  width: 100px;
+  padding: 0;
+  margin: 0;
+  background-size: 80px 80px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
